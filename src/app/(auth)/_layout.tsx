@@ -1,6 +1,5 @@
 import {Stack} from 'expo-router'
-import {COLORS, SIZES} from "../../constants/theme";
-import { Text } from 'react-native';
+import {COLORS, FONT_SIZES} from "../../constants/theme";
 
 
 
@@ -10,13 +9,13 @@ export default function AuthLayout() {
             screenOptions={{
                 // Ваші налаштування заголовка тут
                 headerBackTitleVisible: false,
+                headerTransparent: true,
                 headerStyle: {
-                    backgroundColor: COLORS.primary,
                 },
                 headerShadowVisible: false,
                 headerTintColor: COLORS.black,
                 contentStyle: {
-                    backgroundColor: COLORS.primary
+                    backgroundColor: COLORS.white
                 },
                 fullScreenGestureEnabled: true
             }}

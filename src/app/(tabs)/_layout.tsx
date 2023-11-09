@@ -1,5 +1,5 @@
 import {Redirect, Tabs} from "expo-router";
-import {COLORS, SIZES} from "../../constants/theme";
+import {COLORS, FONT_SIZES} from "../../constants/theme";
 import {useSession} from "../../auth/sessionProvider";
 import {ActivityIndicator} from "react-native";
 
@@ -24,7 +24,7 @@ export default function TabsLayout () {
                     backgroundColor: COLORS.white
                 },
                 tabBarLabelStyle: {
-                    fontSize: SIZES.small,
+                    fontSize: FONT_SIZES.small,
                 },
                 tabBarActiveTintColor: COLORS.black
             }}

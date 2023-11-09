@@ -1,16 +1,15 @@
 import {Pressable, Text, TextInput, View} from "react-native";
-import {Link, Stack} from "expo-router";
+import {Link} from "expo-router";
 import {useSession} from "../../auth/sessionProvider";
-import {STYLE} from "../../constants/theme";
 import React from "react";
 
 export default function Register(){
     const {signIn} = useSession();
 
-    return (
+    return /*(
         <View>
-            <Text style={{...STYLE.defaultBigText,         textAlign: 'center'}}>Заповніть основну</Text>
-            <Text style={{...STYLE.defaultBigText,         textAlign: 'center'}}>інформацію</Text>
+            <Text style={{...STYLE.defaultBigText, textAlign: 'center'}}>Заповніть основну</Text>
+            <Text style={{...STYLE.defaultBigText, textAlign: 'center'}}>інформацію</Text>
             <TextInput
                 style={{
                     ...STYLE.defaultPlaceForText,
@@ -52,5 +51,5 @@ export default function Register(){
             </Link>
             <Link href={'/login'}  style={{...STYLE.defaultLinkText, position: 'absolute', top: 390, textDecorationLine: 'underline', alignSelf: 'center',}}>Вже маєте обліковий запис?</Link>
         </View>
-    )
+    )*/
 }
