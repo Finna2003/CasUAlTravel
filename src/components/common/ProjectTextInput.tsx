@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
         borderBottomWidth: 0.6,
         marginTop: SIZES.pressable.defaultMargin, //Не забувай про 'margin collapsing'
         marginBottom: SIZES.pressable.defaultMargin, //Не забувай про 'margin collapsing'
-        color: COLORS.light_grey,
+        color: COLORS.grey,
         borderBottomColor: COLORS.grey,
         backgroundColor: COLORS.light_grey
     }
