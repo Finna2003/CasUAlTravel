@@ -6,10 +6,6 @@ import {Tabs} from "expo-router";
 export default function TripsHistory (){
     return (
         <View style={{flex: 1}}>
-            <Tabs.Screen options={{
-                headerTransparent: true,
-                headerTitle: ''
-            }}/>
         <View style={styles.contentContainer}>
             <Text style={styles.title}>
                 Мої відвідування
