@@ -9,6 +9,7 @@ export default function ProjectTextInput(props: projectTextInputOptions){
     return (
         <TextInput
             placeholder={props.placeholder}
+            placeholderTextColor={COLORS.grey}
             style={styles.input}
         />
     )
@@ -22,7 +23,7 @@ const styles = StyleSheet.create({
         borderBottomWidth: 0.6,
         marginTop: SIZES.pressable.defaultMargin, //Не забувай про 'margin collapsing'
         marginBottom: SIZES.pressable.defaultMargin, //Не забувай про 'margin collapsing'
-        color: COLORS.grey,
+        color: COLORS.black,
         borderBottomColor: COLORS.grey,
         backgroundColor: COLORS.light_grey
     }
