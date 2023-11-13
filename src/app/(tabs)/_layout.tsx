@@ -42,6 +42,7 @@ export default function TabsLayout () {
                 name={"profile"}
                 options={{
                     tabBarLabel: "Профіль",
+                    headerShown: false
                 }}
             />
             <Tabs.Screen
