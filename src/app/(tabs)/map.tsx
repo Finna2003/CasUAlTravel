@@ -168,10 +168,6 @@ export default function Map(){
 
     return (
         <View>
-            <Tabs.Screen options={{
-                headerTransparent: true,
-                headerTintColor: COLORS.white
-            }}/>
             <MapView
                 style={{width: '100%', height: '100%'}}
                 provider={PROVIDER_GOOGLE}

@@ -49,12 +49,16 @@ export default function TabsLayout () {
                 name={"map"}
                 options={{
                     tabBarLabel: "Створити",
+                    headerTransparent: true,
+                    headerTintColor: COLORS.white
                 }}
             />
             <Tabs.Screen
                 name={"tripsHistory"}
                 options={{
                     tabBarLabel: "Мої подорожі",
+                    headerTransparent: true,
+                    headerTitle: ''
                 }}
             />
         </Tabs>
