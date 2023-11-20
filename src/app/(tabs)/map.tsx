@@ -1,5 +1,5 @@
-import {Text, View} from "react-native";
-import MapView, {PROVIDER_GOOGLE} from "react-native-maps";
+import {Image, Text, View} from "react-native";
+import MapView, {PROVIDER_GOOGLE, Marker} from "react-native-maps";
 import {Tabs} from "expo-router";
 import {COLORS} from "../../constants/theme";
 
@@ -166,13 +166,27 @@ export default function Map(){
         }
     ]
 
+    const initialRegion = {
+        latitude: 50.45274753871608,
+        longitude: 30.524400020257637,
+        latitudeDelta: 0.0922,
+        longitudeDelta: 0.0421,
+    }
+
     return (
         <View>
             <MapView
                 style={{width: '100%', height: '100%'}}
                 provider={PROVIDER_GOOGLE}
                 customMapStyle={mapStyle}
-            />
+                initialRegion={initialRegion}
+            >
+                <Marker
+                    coordinate={{ latitude: 50.453066588366816, longitude: 30.514317225652167 }}
+                >
+                    <Image source={require('../../assets/images/map-marker.png')} style={{ width: 35, height: 35, resizeMode:"contain" }}/>
+                </Marker>
+            </MapView>
         </View>
     )
 }

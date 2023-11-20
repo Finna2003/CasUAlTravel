@@ -6,7 +6,7 @@ let { width, height } = Dimensions.get('window');
 if(Platform.OS === "ios"){
     height -= 82;
 }
-console.log(height);
+
 const guidelineBaseWidth = 375;
 const guidelineBaseHeight = 812;
 
