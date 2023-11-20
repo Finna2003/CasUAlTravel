@@ -3,14 +3,18 @@ import {COLORS, SIZES} from "../../constants/theme";
 
 type projectTextInputOptions = {
     placeholder: string
+    onChangeText: (text: string) => void
+    value: string
 }
 
 export default function ProjectTextInput(props: projectTextInputOptions){
     return (
         <TextInput
+            value={props.value}
             placeholder={props.placeholder}
             placeholderTextColor={COLORS.grey}
             style={styles.input}
+            onChangeText={props.onChangeText}
         />
     )
 }

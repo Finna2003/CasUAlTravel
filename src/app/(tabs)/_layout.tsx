@@ -4,13 +4,13 @@ import {useSession} from "../../auth/sessionProvider";
 import {ActivityIndicator} from "react-native";
 
 export default function TabsLayout () {
-    const {session, isLoading} = useSession();
+    const {isSession, isLoading} = useSession();
 
     if (isLoading){
         return <ActivityIndicator/>
     }
 
-    if(!session){
+    if(!isSession){
         return <Redirect href={'/login'}/>
     }
 

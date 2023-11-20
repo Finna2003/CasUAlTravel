@@ -1,13 +1,37 @@
 import {Pressable, StyleSheet, Text, TextInput, View} from "react-native";
-import {Link} from "expo-router";
+import {Link, router} from "expo-router";
 import {useSession} from "../../auth/sessionProvider";
-import React from "react";
-import {COLORS} from "../../constants/theme";
+import React, {useState} from "react";
+import {COLORS, FONT_SIZES} from "../../constants/theme";
 import ProjectTextInput from "../../components/common/ProjectTextInput";
 import ProjectButtonDark from "../../components/common/ProjectButtonDark";
+import {RegisterRequestData} from "../../auth/dto";
+import {err} from "react-native-svg/lib/typescript/xml";
+import {AxiosError} from "axios";
 
 export default function Register(){
-    const {signIn} = useSession();
+    const {register} = useSession();
+
+    const [userName, setUserName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState<AxiosError | null>(null)
+
+    const handleRegister = () => {
+        if (!userName || !email || !password){
+            return
+        }
+
+        const data: RegisterRequestData = {
+            username: userName,
+            email: email,
+            password: password
+        }
+
+        register(data)
+            .then(() => router.replace('/'))
+            .catch(err => setError(err));
+    }
 
     return (
            <View style={{flex: 0.5}}>
@@ -16,15 +40,27 @@ export default function Register(){
                        Заповніть основну{'\n'}
                          інформацію
                    </Text>
-                   <ProjectTextInput placeholder={"Ім'я"}/>
-                   <ProjectTextInput placeholder={"Електронна пошта"}/>
-                   <ProjectTextInput placeholder={"Пароль"}/>
-                   <Link href='/' asChild>
-                       <ProjectButtonDark
-                           text={"Зареєструватися"}
-                           onPress={() => signIn()}
-                       />
-                   </Link>
+                   <ProjectTextInput
+                       onChangeText={text => setUserName(text)}
+                       value={userName}
+                       placeholder={"Ім'я"}/>
+                   <ProjectTextInput
+                       onChangeText={text => setEmail(text)}
+                       value={email}
+                       placeholder={"Електронна пошта"}/>
+                   <ProjectTextInput
+                       onChangeText={text => setPassword(text)}
+                       value={password}
+                       placeholder={"Пароль"}/>
+                   <ProjectButtonDark
+                       text={"Зареєструватися"}
+                       onPress={() => handleRegister()}
+                   />
+                   {error && (
+                       <View style={{alignSelf: "center"}}>
+                           <Text style={{ fontSize: FONT_SIZES.sectionTitle }}>{error.message}</Text>
+                       </View>
+                   )}
                    <Link href={'/login'} style={styles.resetLogin}>
                        Вже маєте обліковий запис?
                    </Link>

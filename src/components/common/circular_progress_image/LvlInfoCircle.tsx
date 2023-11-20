@@ -1,39 +1,43 @@
 import {ColorValue} from "react-native";
 import {Fragment} from "react";
 import {Circle, Text} from "react-native-svg";
-import {ProgressCircleOptions} from "./ProgressCircle";
+import {FONT} from "../../../constants/theme";
 
 type LvlInfoOptions = {
-    progressCircleOptions: ProgressCircleOptions
-    lvl: number,
-    circleWidth: number
+    coord: number
+    strokeWidth: number,
+    strokeRadius: number,
+    strokeColor: ColorValue
+    backgroundColor: ColorValue,
+    text: string,
     fontColor: ColorValue,
-    backgroundColor: ColorValue
+    fontSize: number,
+    fontFamily: string,
 }
 
 export default function LvlInfoCircle(props: LvlInfoOptions){
-    const coord = props.progressCircleOptions.radius * 2 - props.progressCircleOptions.width * 2;
 
     return (
         <Fragment>
             <Circle
-                cx={coord}
-                cy={coord}
-                r={props.progressCircleOptions.radius / 4}
-                stroke={props.progressCircleOptions.progressColor}
-                strokeWidth={props.circleWidth}
+                cx={props.coord}
+                cy={props.coord}
+                r={props.strokeRadius}
+                stroke={props.strokeColor}
+                strokeWidth={props.strokeWidth}
                 fill={props.backgroundColor}
             />
             <Text
-                x={coord}
-                y={coord}
+                x={props.coord}
+                y={props.coord}
                 textAnchor="middle"
                 dy=".3em"
                 fill={props.fontColor}
-                fontSize={props.progressCircleOptions.radius * 0.3}
-                fontWeight={"bolder"}
+                fontSize={props.fontSize + 1} // this is the trick to make the font look the way i want it to
+                fontFamily={FONT.regular} // custom font family didn't support
+                fontWeight={"bold"} // this is the trick to make the font look the way i want it to
             >
-                {props.lvl}
+                {props.text}
             </Text>
         </Fragment>
     )
