@@ -1,7 +1,7 @@
 import {StyleSheet, Text, View} from "react-native";
-import {COLORS, FONT_SIZES} from "../../../constants/theme";
-import AchievementList from "./AchievementList";
+import {COLORS, FONT, FONT_SIZES} from "../../../constants/theme";
 import CircularProgressImage from "../../common/circular_progress_image/CircularProgressImage";
+import {moderateAdaptive, verticalAdaptive} from "../../../utility/metrics";
 
 export default function ProfileHeader(){
 
@@ -10,22 +10,39 @@ export default function ProfileHeader(){
             <View style={styles.profile_header_top}>
                 <View style={styles.profile_header_img_cont}>
                     <CircularProgressImage
-                        progress={60}
                         img={require("../../../assets/images/photo.jpg")}
-                            size={160}
-                        strokeWidth={12}
-                        indent={6}
-                        lvl={1}
+                        imgRadius={moderateAdaptive(57)}
+                        strokeRadius={moderateAdaptive(62)}
+                        strokeWidth={moderateAdaptive(8)}
+                        strokeColor={"#1E90FF"}
+                        strokeProgressValue={75}
+                        infoStrokeRadius={moderateAdaptive(15)}
+                        infoStrokeWidth={moderateAdaptive(3)}
+                        infoStrokeColor={"#1E90FF"}
+                        infoFontColor={COLORS.white}
+                        infoBackgroundColor={COLORS.black}
+                        infoText={'2'}
+                        infoFontSize={moderateAdaptive(21)}
+                        infoFontFamily={FONT.bold}
                     />
                 </View>
-                <View style={styles.profile_header_top_name_cont}>
-                    <Text style={styles.profile_header_top_name}>
-                        Юлія Рак
-                    </Text>
+                <View style={styles.profile_header_info_cont}>
+                    <View style={styles.profile_header_info_name_cont}>
+                        <Text style={styles.profile_header_info_name}>
+                            Влад
+                        </Text>
+                    </View>
+                    <View style={styles.profile_header_info_username_cont}>
+                        <Text style={styles.profile_header_info_username}>
+                            @vladsfa
+                        </Text>
+                    </View>
+                    <View style={styles.profile_header_info_description_cont}>
+                        <Text style={styles.profile_header_info_description}>
+                            Software Engineer, 21
+                        </Text>
+                    </View>
                 </View>
-            </View>
-            <View style={styles.profile_header_achievement_list_cont}>
-                <AchievementList itemSize={120}/>
             </View>
         </View>
     )
@@ -36,23 +53,38 @@ const styles = StyleSheet.create({
         marginTop: 15
     },
     profile_header_top:{
-      alignSelf: "center"
+        alignSelf: "center",
+        alignItems: "center"
     },
     profile_header_img_cont: {
 
     },
-    profile_header_top_name_cont: {
-        marginTop: 10,
-        alignSelf: "center"
+    profile_header_info_cont: {
+        alignItems: "center",
     },
-    profile_header_top_name: {
+    profile_header_info_name_cont: {
+        marginTop: 5,
+    },
+    profile_header_info_name: {
         color: COLORS.white,
-        fontSize: FONT_SIZES.xLarge,
-        fontWeight: "bold"
+        fontFamily: FONT.bold,
+        fontSize: moderateAdaptive(FONT_SIZES.pageTitle),
     },
-    profile_header_achievement_list_cont: {
-        marginTop: 45,
-        width: "100%",
-    }
+    profile_header_info_username_cont: {
+        marginTop: verticalAdaptive(2.5)
+    },
+    profile_header_info_username: {
+        fontSize: moderateAdaptive(FONT_SIZES.medium),
+        fontFamily: FONT.regular,
+        color: COLORS.white
+    },
+    profile_header_info_description_cont: {
+        marginTop: verticalAdaptive(20)
+    },
+    profile_header_info_description: {
+        color: COLORS.white,
+        fontFamily: FONT.regular,
+        fontSize: moderateAdaptive(FONT_SIZES.medium),
+    },
 
 })

@@ -1,12 +1,13 @@
 const COLORS = {
     primary: "#3F51B5",
 
-    grey:"#707070" ,
-    light_grey:"#F5F5F5" ,
+    //grey:"#707070" ,
+    grey:"#878787",
+    light_grey:"#F2F1F7" ,
 
-    white: "#fcf8f7",
+    white: "#FFFFFF",
 
-    black: "#080808",
+    black: "#000000",
 };
 
 const SIZES = {
@@ -20,13 +21,15 @@ const SIZES = {
 }
 
 const FONT_SIZES = {
-    xxSmall: 10,
-    xSmall: 12,
-    small: 14,
+    pageTitle: 30,
+    sectionTitle: 22,
     medium: 16,
-    large: 20,
-    xLarge: 24,
-    xxLarge: 32,
+    small: 14,
 };
 
-export {COLORS, FONT_SIZES, SIZES}
+const FONT = {
+    regular: "InterRegular",
+    bold: "InterBold"
+}
+
+export {COLORS, FONT_SIZES, SIZES, FONT}
