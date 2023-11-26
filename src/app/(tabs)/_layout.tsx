@@ -1,7 +1,7 @@
 import {Redirect, Tabs} from "expo-router";
 import {COLORS, FONT_SIZES} from "../../constants/theme";
 import {useSession} from "../../auth/sessionProvider";
-import {ActivityIndicator} from "react-native";
+import {Image, ActivityIndicator} from "react-native";
 
 export default function TabsLayout () {
     const {isSession, isLoading} = useSession();
@@ -39,10 +39,19 @@ export default function TabsLayout () {
                 }}
             />
             <Tabs.Screen
-                name={"profile"}
+                name={'profile'}
                 options={{
-                    tabBarLabel: "Профіль",
-                    headerShown: false
+                    tabBarLabel: 'Профіль',
+                    headerShown: false,
+                    tabBarLabelStyle: {
+                        color: COLORS.black, // Колір тексту вкладки
+                    },
+                    tabBarIcon: () => (
+                        <Image
+                            source={require("../../assets/images/profile.jpg")}
+                            style={{ width: 24, height: 24 }}
+                        />
+                    ),
                 }}
             />
             <Tabs.Screen
@@ -50,7 +59,16 @@ export default function TabsLayout () {
                 options={{
                     tabBarLabel: "Створити",
                     headerTransparent: true,
-                    headerTintColor: COLORS.white
+                    headerTintColor: COLORS.white,
+                    tabBarLabelStyle: {
+                        color: COLORS.black, // Колір тексту вкладки
+                    },
+                    tabBarIcon: () => (
+                        <Image
+                            source={require("../../assets/images/plus.jpg")}
+                            style={{ width: 24, height: 24 }}
+                        />
+                    ),
                 }}
             />
             <Tabs.Screen
@@ -58,7 +76,16 @@ export default function TabsLayout () {
                 options={{
                     tabBarLabel: "Мої подорожі",
                     headerTransparent: true,
-                    headerTitle: ''
+                    headerTitle: '',
+                    tabBarLabelStyle: {
+                        color: COLORS.black, // Колір тексту вкладки
+                    },
+                    tabBarIcon: () => (
+                        <Image
+                            source={require("../../assets/images/point.jpg")}
+                            style={{ width: 24, height: 30 }}
+                        />
+                    ),
                 }}
             />
         </Tabs>
