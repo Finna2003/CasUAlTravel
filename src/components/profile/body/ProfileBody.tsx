@@ -1,5 +1,5 @@
 import {Platform, StyleSheet, View} from "react-native";
-import {Link} from "expo-router";
+import {Link, router} from "expo-router";
 import {useSession} from "../../../auth/sessionProvider";
 import AchievementSection from "./AchievementSection";
 import {moderateAdaptive} from "../../../utility/metrics";
@@ -28,6 +28,9 @@ export default function ProfileBody(){
                             onPress={() => signOut()}
                         />
                     </Link>
+                </View>
+                <View>
+                    <ProjectButtonDark text={"Перейти до опитування"} onPress={() => router.push('/interests-form/welcome')}/>
                 </View>
             </View>
         </View>
