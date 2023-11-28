@@ -39,10 +39,19 @@ export default function TabsLayout () {
                 }}
             />
             <Tabs.Screen
-                name={"profile"}
+                name={'profile'}
                 options={{
-                    tabBarLabel: "Профіль",
-                    headerShown: false
+                    tabBarLabel: 'Профіль',
+                    headerShown: false,
+                    tabBarLabelStyle: {
+                        color: COLORS.black, // Колір тексту вкладки
+                    },
+                    tabBarIcon: () => (
+                        <Image
+                            source={require("../../assets/images/profile.jpg")}
+                            style={{ width: 24, height: 24 }}
+                        />
+                    ),
                 }}
             />
             <Tabs.Screen
@@ -50,7 +59,16 @@ export default function TabsLayout () {
                 options={{
                     tabBarLabel: "Створити",
                     headerTransparent: true,
-                    headerTintColor: COLORS.white
+                    headerTintColor: COLORS.white,
+                    tabBarLabelStyle: {
+                        color: COLORS.black, // Колір тексту вкладки
+                    },
+                    tabBarIcon: () => (
+                        <Image
+                            source={require("../../assets/images/plus.jpg")}
+                            style={{ width: 24, height: 24 }}
+                        />
+                    ),
                 }}
             />
             <Tabs.Screen
@@ -58,7 +76,16 @@ export default function TabsLayout () {
                 options={{
                     tabBarLabel: "Мої подорожі",
                     headerTransparent: true,
-                    headerTitle: ''
+                    headerTitle: '',
+                    tabBarLabelStyle: {
+                        color: COLORS.black, // Колір тексту вкладки
+                    },
+                    tabBarIcon: () => (
+                        <Image
+                            source={require("../../assets/images/point.jpg")}
+                            style={{ width: 24, height: 30 }}
+                        />
+                    ),
                 }}
             />
         </Tabs>
