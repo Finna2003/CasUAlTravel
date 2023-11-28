@@ -1,13 +1,13 @@
 import {Redirect, Tabs} from "expo-router";
 import {COLORS, FONT_SIZES} from "../../constants/theme";
-import {useSession} from "../../auth/sessionProvider";
-import {Image, ActivityIndicator} from "react-native";
+import {useSession} from "../../auth/SessionProvider";
+import ProjectLoadingScreen from "../../components/common/ProjectLoadingScreen";
 
 export default function TabsLayout () {
     const {isSession, isLoading} = useSession();
 
     if (isLoading){
-        return <ActivityIndicator/>
+        return <ProjectLoadingScreen/>
     }
 
     if(!isSession){
