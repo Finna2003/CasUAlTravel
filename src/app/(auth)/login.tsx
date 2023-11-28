@@ -1,6 +1,6 @@
 import {View, Text, Image, StyleSheet} from "react-native";
 import {Link, router} from "expo-router";
-import {useSession} from "../../auth/sessionProvider";
+import {useSession} from "../../auth/SessionProvider";
 import {COLORS, FONT_SIZES} from "../../constants/theme";
 import React, {useState} from "react";
 import ProjectButtonLight from "../../components/common/ProjectButtonLight";

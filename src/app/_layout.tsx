@@ -1,8 +1,9 @@
 import {Slot} from "expo-router";
 import {setStatusBarStyle} from "expo-status-bar";
-import SessionProvider from "../auth/sessionProvider";
+import SessionProvider from "../auth/SessionProvider";
 import {useFonts} from "expo-font";
 import axios from "axios";
+import PlacesProvider from "../contexts/places/PlacesProvider";
 
 export default function AppLayout (){
     const [fontsLoaded, fontError] = useFonts({
@@ -10,17 +11,19 @@ export default function AppLayout (){
         InterBold: require('../assets/fonts/Inter-Bold.ttf')
     })
 
-    axios.defaults.headers.post['Content-Type'] = 'application/json';
-
     if (!fontsLoaded && !fontError) {
         return null;
     }
+
+    axios.defaults.headers.common['Content-Type'] = 'application/json';
 
     setStatusBarStyle("dark");
 
     return (
         <SessionProvider>
-            <Slot></Slot>
+            <PlacesProvider>
+                <Slot></Slot>
+            </PlacesProvider>
         </SessionProvider>
     )
 }

@@ -1,6 +1,6 @@
 import {Platform, StyleSheet, View} from "react-native";
 import {Link} from "expo-router";
-import {useSession} from "../../../auth/sessionProvider";
+import {useSession} from "../../../auth/SessionProvider";
 import AchievementSection from "./AchievementSection";
 import {moderateAdaptive} from "../../../utility/metrics";
 import InterestsSection from "./Interests/InterestsSection";

@@ -3,13 +3,13 @@ import {GestureResponderEvent, StyleSheet} from "react-native";
 import ProjectButton from "./ProjectButton";
 import {COLORS, SIZES} from "../../constants/theme";
 
-type ProjectButtonDarkOptions = {
+type projectButtonDarkOptions = {
     text: string,
     onPress: (event: GestureResponderEvent) => void
     width?: number
 }
 
-const ProjectButtonDark = forwardRef((props: ProjectButtonDarkOptions, ref) => {
+const ProjectButtonDark = forwardRef((props: projectButtonDarkOptions, ref) => {
     return (
         <ProjectButton
             text={props.text}
