@@ -1,10 +1,10 @@
 import {Platform, StyleSheet, View} from "react-native";
 import {Link, router} from "expo-router";
-import {useSession} from "../../../auth/sessionProvider";
 import AchievementSection from "./AchievementSection";
 import {moderateAdaptive} from "../../../utility/metrics";
 import InterestsSection from "./Interests/InterestsSection";
 import ProjectButtonDark from "../../common/ProjectButtonDark";
+import {useSession} from "../../../auth/SessionProvider";
 
 export default function ProfileBody(){
     const {signOut} = useSession();

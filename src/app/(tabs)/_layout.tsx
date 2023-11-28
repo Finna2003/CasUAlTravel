@@ -2,6 +2,7 @@ import {Redirect, Tabs} from "expo-router";
 import {COLORS, FONT_SIZES} from "../../constants/theme";
 import {useSession} from "../../auth/SessionProvider";
 import ProjectLoadingScreen from "../../components/common/ProjectLoadingScreen";
+import {Image} from "react-native"
 
 export default function TabsLayout () {
     const {isSession, isLoading} = useSession();

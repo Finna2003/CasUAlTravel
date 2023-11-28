@@ -37,6 +37,7 @@ function useSessionState() : useSessionHook{
     const [isSession, setIsSession] = useState<boolean>(false);
 
     useEffect(() => {
+        setIsSession(true);
        if (storageValue){
            setIsSession(true);
            axiosBase.defaults.headers.common.Authorization = `Bearer ${storageValue}`
