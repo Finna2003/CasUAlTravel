@@ -4,10 +4,11 @@ import {COLORS, FONT_SIZES} from "../../constants/theme";
 
 
 export default function AuthLayout() {
+
+
     return (
         <Stack
             screenOptions={{
-                // Ваші налаштування заголовка тут
                 headerBackTitleVisible: false,
                 headerTransparent: true,
                 headerStyle: {
@@ -23,7 +24,7 @@ export default function AuthLayout() {
             <Stack.Screen
     name="login"
     options={{
-        headerTitle: '' // Порожній заголовок для сторінки "Login"
+        headerTitle: ''
     }}
     />
             <Stack.Screen

@@ -3,11 +3,9 @@ import {COLORS} from "../../constants/theme";
 import ProfileHeader from "../../components/profile/header/ProfileHeader";
 import ProfileBody from "../../components/profile/body/ProfileBody";
 import SafeAreaViewBothOS from "../../components/common/SafeAreaViewBothOS";
-import {useSafeAreaInsets} from "react-native-safe-area-context";
 import {moderateAdaptive} from "../../utility/metrics";
 
 export default function Profile(){
-    const insets = useSafeAreaInsets();
     return (
         <ScrollView
             style={styles.cont}

@@ -1,6 +1,6 @@
 import {Pressable, StyleSheet, Text, TextInput, View} from "react-native";
 import {Link, router} from "expo-router";
-import {useSession} from "../../auth/sessionProvider";
+import {useSession} from "../../auth/SessionProvider";
 import React, {useState} from "react";
 import {COLORS, FONT_SIZES} from "../../constants/theme";
 import ProjectTextInput from "../../components/common/ProjectTextInput";
@@ -21,7 +21,6 @@ export default function Register(){
         if (!userName || !email || !password){
             return
         }
-
         const data: RegisterRequestData = {
             username: userName,
             email: email,
