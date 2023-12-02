@@ -1,7 +1,9 @@
 import {Redirect, Tabs} from "expo-router";
+import {Image} from "react-native";
 import {COLORS, FONT_SIZES} from "../../constants/theme";
 import {useSession} from "../../auth/SessionProvider";
 import ProjectLoadingScreen from "../../components/common/ProjectLoadingScreen";
+import React from "react";
 
 export default function TabsLayout () {
     const {isSession, isLoading} = useSession();
@@ -29,7 +31,7 @@ export default function TabsLayout () {
                 tabBarActiveTintColor: COLORS.black
             }}
             sceneContainerStyle={{
-                backgroundColor: COLORS.white,
+                backgroundColor: COLORS.light_grey,
             }}
         >
             <Tabs.Screen
@@ -75,10 +77,16 @@ export default function TabsLayout () {
                 name={"tripsHistory"}
                 options={{
                     tabBarLabel: "Мої подорожі",
-                    headerTransparent: true,
-                    headerTitle: '',
+                    headerTitle: 'Мої відвідування',
+                    headerStyle: {
+                        backgroundColor: COLORS.white,
+                    },
                     tabBarLabelStyle: {
                         color: COLORS.black, // Колір тексту вкладки
+                    },
+                    headerTitleStyle: {
+                        fontSize: 18,
+                        fontWeight: 'bold',
                     },
                     tabBarIcon: () => (
                         <Image

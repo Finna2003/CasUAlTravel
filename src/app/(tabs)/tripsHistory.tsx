@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View} from "react-native";
+import {ScrollView, StyleSheet, Text, View} from "react-native";
 import {COLORS, SIZES} from "../../constants/theme";
 import React from "react";
 import TripHistoryField from "../../components/common/TripHistoryField";
@@ -6,48 +6,84 @@ import TripHistoryField from "../../components/common/TripHistoryField";
 
 export default function TripsHistory (){
     return (
-        <View style={{flex: 1}}>
-        <View style={styles.contentContainer}>
-            <Text style={styles.title}>
-                Мої відвідування
-            </Text>
+        <ScrollView style={styles.contentContainer}
+                    showsVerticalScrollIndicator={false}>
+
             <TripHistoryField
-                text="Батьківщина-Мати"
+                text="Золоті Ворота"
                 btnStyles={styles.container}
-                date="23.03.2023"
+                date="23.01.2022"
                 btnTextStyles={styles.btnText}
-                imagePath={require("../../assets/images/main.jpg")}/>
+                btnTextStyles2={styles.btnText2}
+                imagePath={require("../../assets/images/Golden_Gates.jpg")}/>
             <TripHistoryField
-                text="Батьківщина-Мати"
+                text="Андріївський узвіз"
                 btnStyles={styles.container}
-                date="24.03.2023"
+                date="01.02.2023"
                 btnTextStyles={styles.btnText}
-                imagePath={require("../../assets/images/main.jpg")}/>
+                btnTextStyles2={styles.btnText2}
+                imagePath={require("../../assets/images/And_Ch.jpg")}/>
             <TripHistoryField
                 text="Батьківщина-Мати"
                 btnStyles={styles.container}
                 date="25.03.2023"
                 btnTextStyles={styles.btnText}
+                btnTextStyles2={styles.btnText2}
                 imagePath={require("../../assets/images/main.jpg")}/>
-        </View>
-        </View>
+            <TripHistoryField
+                text="Будинок з химерами"
+                btnStyles={styles.container}
+                date="25.03.2023"
+                btnTextStyles={styles.btnText}
+                btnTextStyles2={styles.btnText2}
+                imagePath={require("../../assets/images/House.jpg")}/>
+            <TripHistoryField
+                text="Парк Феофанія"
+                btnStyles={styles.container}
+                date="12.06.2023"
+                btnTextStyles={styles.btnText}
+                btnTextStyles2={styles.btnText2}
+                imagePath={require("../../assets/images/park_feofanija.jpg")}/>
+            <TripHistoryField
+                text="Костел Святого Миколая"
+                btnStyles={styles.container}
+                date="17.08.2023"
+                btnTextStyles={styles.btnText}
+                btnTextStyles2={styles.btnText2}
+                imagePath={require("../../assets/images/kostel.jpg")}/>
+            <TripHistoryField
+                text="Парк імені Тараса Шевченка"
+                btnStyles={styles.container}
+                date="10.10.2023"
+                btnTextStyles={styles.btnText}
+                btnTextStyles2={styles.btnText2}
+                imagePath={require("../../assets/images/park.jpg")}/>
+        </ScrollView>
     )
 }
 const styles = StyleSheet.create({
     container: {},
-    btnText: {},
-    contentContainer: {
-        flex: 1,
-        marginBottom: 40,
-        justifyContent: "flex-start",
-        alignSelf: "center",
+    btnText: {
+        fontWeight: 'bold',
+        fontSize: 16,
     },
-
-    title: {
-        fontSize: 20,
-        marginTop: 55,
-        marginBottom: 35,
+    btnText2: {
+    },
+    contentContainer: {
         alignSelf: "center",
-        textAlign: 'center'
+        marginTop: SIZES.pressable.defaultMargin,
+        backgroundColor: COLORS.light_grey
+    },
+    container2: {
+        width: "100%",
+        height: 80,
+        backgroundColor: COLORS.white
+    },
+    title: {
+        fontSize: 22,
+        marginTop: 60,
+        alignSelf: "center",
+        textAlign: 'center',
+        fontWeight: 'bold',
     }
 })
