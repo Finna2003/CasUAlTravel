@@ -1,8 +1,8 @@
 import {Redirect, Tabs} from "expo-router";
-import {COLORS, FONT_SIZES} from "../../constants/theme";
+import {COLORS, FONT} from "../../constants/theme";
 import {useSession} from "../../auth/SessionProvider";
 import ProjectLoadingScreen from "../../components/common/ProjectLoadingScreen";
-import {Image} from "react-native"
+import { FontAwesome5, MaterialCommunityIcons, MaterialIcons} from "@expo/vector-icons";
 
 export default function TabsLayout () {
     const {isSession, isLoading} = useSession();
@@ -15,6 +15,9 @@ export default function TabsLayout () {
         return <Redirect href={'/login'}/>
     }
 
+    const activeColor = COLORS.primary;
+    const inactiveColor = "#abb3c0"
+
     return (
         <Tabs
             screenOptions={{
@@ -22,12 +25,19 @@ export default function TabsLayout () {
                     backgroundColor: COLORS.white,
                 },
                 tabBarStyle: {
-                    backgroundColor: COLORS.white
+                    borderTopColor: "#b7b7b7",
+                    backgroundColor: COLORS.white,
+                    height: 83
                 },
                 tabBarLabelStyle: {
-                    fontSize: FONT_SIZES.small,
+                    fontSize: 11,
+                    fontFamily: FONT.regular,
+                    marginTop: -3
                 },
-                tabBarActiveTintColor: COLORS.black
+                tabBarActiveTintColor: COLORS.primary,
+                tabBarItemStyle: {
+                    marginBottom: 3
+                },
             }}
             sceneContainerStyle={{
                 backgroundColor: COLORS.white,
@@ -44,14 +54,8 @@ export default function TabsLayout () {
                 options={{
                     tabBarLabel: 'Профіль',
                     headerShown: false,
-                    tabBarLabelStyle: {
-                        color: COLORS.black, // Колір тексту вкладки
-                    },
-                    tabBarIcon: () => (
-                        <Image
-                            source={require("../../assets/images/profile.jpg")}
-                            style={{ width: 24, height: 24 }}
-                        />
+                    tabBarIcon: ({focused}) => (
+                        <FontAwesome5 name="user-alt" size={24} color={focused ? activeColor : inactiveColor}/>
                     ),
                 }}
             />
@@ -60,15 +64,8 @@ export default function TabsLayout () {
                 options={{
                     tabBarLabel: "Створити",
                     headerTransparent: true,
-                    headerTintColor: COLORS.white,
-                    tabBarLabelStyle: {
-                        color: COLORS.black, // Колір тексту вкладки
-                    },
-                    tabBarIcon: () => (
-                        <Image
-                            source={require("../../assets/images/plus.jpg")}
-                            style={{ width: 24, height: 24 }}
-                        />
+                    tabBarIcon: ({focused}) => (
+                        <MaterialCommunityIcons name="earth-plus" size={30} color={focused ? activeColor : inactiveColor} />
                     ),
                 }}
             />
@@ -78,14 +75,8 @@ export default function TabsLayout () {
                     tabBarLabel: "Мої подорожі",
                     headerTransparent: true,
                     headerTitle: '',
-                    tabBarLabelStyle: {
-                        color: COLORS.black, // Колір тексту вкладки
-                    },
-                    tabBarIcon: () => (
-                        <Image
-                            source={require("../../assets/images/point.jpg")}
-                            style={{ width: 24, height: 30 }}
-                        />
+                    tabBarIcon: ({focused}) => (
+                        <MaterialIcons name="history" size={34} color={focused ? activeColor : inactiveColor} />
                     ),
                 }}
             />
