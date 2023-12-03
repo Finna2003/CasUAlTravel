@@ -53,7 +53,6 @@ export function usePlacesIconDetails(): {
                     setPlaces(res)
                 })
                 .catch(err => {
-                    console.log("here1");
                     alert(err)
                 });
 
