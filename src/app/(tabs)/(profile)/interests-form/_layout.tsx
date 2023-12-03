@@ -22,7 +22,7 @@ export default function InterestsFormLayout(){
             <Stack.Screen
                 name="welcome"
                 options={{
-                    headerTitle: '' // Порожній заголовок для сторінки "Login"
+                    headerTitle: 'Привітання'
                 }}
             />
             <Stack.Screen
