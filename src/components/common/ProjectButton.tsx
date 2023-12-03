@@ -1,5 +1,5 @@
 import {GestureResponderEvent, Pressable, StyleProp, StyleSheet, Text, TextStyle, ViewStyle} from "react-native";
-import {SIZES} from "../../constants/theme";
+import {FONT, SIZES} from "../../constants/theme";
 import {forwardRef} from "react";
 
 type projectButtonProps = {
@@ -35,6 +35,7 @@ const styles = StyleSheet.create({
         marginTop: SIZES.pressable.defaultMargin //Не забувай про 'margin collapsing'
     },
     btnText:{
+        fontFamily: FONT.regular,
         alignSelf: "center",
     }
 })

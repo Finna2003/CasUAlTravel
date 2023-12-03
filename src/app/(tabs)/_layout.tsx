@@ -50,7 +50,7 @@ export default function TabsLayout () {
                 }}
             />
             <Tabs.Screen
-                name={'profile'}
+                name={"(profile)"}
                 options={{
                     tabBarLabel: 'Профіль',
                     headerShown: false,
@@ -60,10 +60,11 @@ export default function TabsLayout () {
                 }}
             />
             <Tabs.Screen
-                name={"map"}
+                name={"(map)"}
                 options={{
                     tabBarLabel: "Створити",
                     headerTransparent: true,
+                    headerTitleStyle: {display: "none"},
                     tabBarIcon: ({focused}) => (
                         <MaterialCommunityIcons name="earth-plus" size={30} color={focused ? activeColor : inactiveColor} />
                     ),

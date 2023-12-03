@@ -1,9 +1,13 @@
 import {useEffect, useState} from "react";
 import {LatLng} from "react-native-maps";
 import {axiosBase} from "../../utility/axiosBase";
+import {PLACES, ROUTE_PLACES} from "../../constants/response";
 
 export type placeDbDetails = {
     id: number,
+    visitTime: number,
+    visitCost: number,
+    name: string,
     coords: LatLng,
 }
 
@@ -18,9 +22,10 @@ export function usePlacesDbDetails(): {
                     // @ts-ignore
                     setPlaces(response.data.map(e => ({
                         id: e.placeId,
+                        name: e.nameForUser,
                         coords: {
-                            latitude: parseFloat(e.location.latitude),
-                            longitude: parseFloat(e.location.longitude)
+                            latitude: parseFloat(e.location.x),
+                            longitude: parseFloat(e.location.y)
                         }
                     })));
                 }
@@ -31,84 +36,47 @@ export function usePlacesDbDetails(): {
             });*/
 
         new Promise<placeDbDetails[]>((resolve, reject) => {
+            // @ts-ignore
+            const res = JSON.parse(PLACES);
+            // @ts-ignore
+            resolve(res.map(e => ({
+                id: e.placeId,
+                visitTime: e.visitTime,
+                visitCost: e.visitCost,
+                name: e.nameForUser,
+                coords: e.location
+            })));
+        })
+            .then(res => {
+                setPlaces(res)
+            })
+            .catch(err => alert(err.message));
+
+        /*new Promise<placeDbDetails[]>((resolve, reject) => {
             setTimeout(() => {
                 resolve( [
                     {
                         id: 1,
+                        name: "Holosiivskyi National Natural Park",
                         coords: {
-                            latitude: 50.42652831373371,
-                            longitude: 30.56305017477877
+                            latitude: 50.36655788707013,
+                            longitude: 30.49768444173739
                         }
                     },
                     {
                         id: 2,
+                        name: "Sikorsky International Airport Kyiv",
                         coords: {
                             latitude: 50.4106665963391,
                             longitude: 30.438216318517146
                         }
                     },
-                    {
-                        id: 3,
-                        coords: {
-                            latitude: 50.36663150740578,
-                            longitude: 30.49764481957499
-                        }
-                    },
-                    {
-                        id: 4,
-                        coords: {
-                            latitude: 50.36663150740578,
-                            longitude: 30.49764481957499
-                        }
-                    },
-                    {
-                        id: 5,
-                        coords: {
-                            latitude: 50.43464324796345,
-                            longitude: 30.557270970833883
-                        }
-                    },
-                    {
-                        id: 6,
-                        coords: {
-                            latitude: 50.438235377125174,
-                            longitude: 30.553996846321105
-                        }
-                    },
-                    {
-                        id: 7,
-                        coords: {
-                            latitude: 50.45150269043815,
-                            longitude: 30.494900962550712
-                        }
-                    },
-                    {
-                        id: 8,
-                        coords: {
-                            latitude: 50.45289567147714,
-                            longitude: 30.514289421697338
-                        }
-                    },
-                    {
-                        id: 9,
-                        coords: {
-                            latitude: 50.454909194697514,
-                            longitude: 30.46517818726079
-                        }
-                    },
-                    {
-                        id: 10,
-                        coords: {
-                            latitude: 50.44173057838623,
-                            longitude: 30.512967561014715
-                        }
-                    }
                 ],)
             }, 0)
         }).then(response => {
             setPlaces(response as placeDbDetails[]);
         })
-            .catch(err => alert(err))
+            .catch(err => alert(err))*/
     }
 
     useEffect(() => {

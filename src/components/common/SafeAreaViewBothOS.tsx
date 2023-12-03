@@ -3,7 +3,7 @@ import {Platform, SafeAreaView, StatusBar, StyleProp, ViewStyle} from "react-nat
 
 type SafeAreaViewBothOsOptions = {
     children: ReactNode,
-    style: StyleProp<ViewStyle>
+    style?: StyleProp<ViewStyle>
 }
 
 export default function SafeAreaViewBothOS(props: SafeAreaViewBothOsOptions){
