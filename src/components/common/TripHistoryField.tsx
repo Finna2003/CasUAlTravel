@@ -10,6 +10,7 @@ type TripHistoryFieldProps = {
     text: string;
     btnStyles: StyleProp<ViewStyle>;
     btnTextStyles: StyleProp<TextStyle>;
+    btnTextStyles2: StyleProp<TextStyle>;
     imagePath: ImageSourcePropType; // Доданий новий параметр для шляху до зображення
     date: string; // Параметр для дати
 };
@@ -20,7 +21,6 @@ const TripHistoryField = forwardRef((props: TripHistoryFieldProps, ref) => {
             style={StyleSheet.compose(styles.container, props.btnStyles)}
         >
             <View style={styles.leftContainer}>
-                {/* Кружок із зображенням */}
                 <View style={styles.circle}>
                     <Image
                            style={styles.image}
@@ -29,10 +29,15 @@ const TripHistoryField = forwardRef((props: TripHistoryFieldProps, ref) => {
                 </View>
             </View>
             {/* Текст */}
+            <View style={styles.container2}>
             <Text style={StyleSheet.compose(styles.btnText, props.btnTextStyles)}>
                 {props.text}{'\n'}
+
+            </Text>
+            <Text style={StyleSheet.compose(styles.btnText2, props.btnTextStyles2)}>
                 {props.date}
             </Text>
+            </View>
         </Pressable>
     );
 });
@@ -45,19 +50,25 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "flex-start",
         width: SIZES.pressable.defaultWidth,
-        padding: SIZES.pressable.defaultPadding,
-        borderRadius: SIZES.pressable.defaultBorderRadius,
+        borderRadius: 12,
         marginBottom: SIZES.pressable.defaultMargin,
         marginTop: SIZES.pressable.defaultMargin,
-        backgroundColor: COLORS.light_grey
+        overflow: "hidden",
+        backgroundColor: COLORS.white
     },
+    container2: {
+        padding: SIZES.pressable.defaultPadding,
+        flexDirection: "column",
+        justifyContent: "space-between"
+    },
+
     leftContainer: {
-        marginRight: 10, // Відступ між кружком і текстом
+        marginRight: 10,
     },
     circle: {
-        width: 50,
-        height: 50,
-        borderRadius: 25,
+        width: 81,
+        height: 81,
+        borderRadius: 7,
         overflow: "hidden",
         backgroundColor: COLORS.black
     },
@@ -66,6 +77,7 @@ const styles = StyleSheet.create({
         height: "100%",
     },
     btnText: {
-        alignSelf: "center",
+    },
+    btnText2: {
     },
 });

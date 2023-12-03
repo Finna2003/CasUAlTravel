@@ -40,7 +40,7 @@ export default function TabsLayout () {
                 },
             }}
             sceneContainerStyle={{
-                backgroundColor: COLORS.white,
+                backgroundColor: COLORS.light_grey,
             }}
         >
             <Tabs.Screen
@@ -73,7 +73,18 @@ export default function TabsLayout () {
             <Tabs.Screen
                 name={"tripsHistory"}
                 options={{
-                    tabBarLabel: "Мої подорожі",
+                    tabBarLabel: "Мої відвідування",
+                    headerTitle: 'Мої відвідування',
+                    headerStyle: {
+                        backgroundColor: COLORS.white,
+                    },
+                    tabBarLabelStyle: {
+                        color: COLORS.black, // Колір тексту вкладки
+                    },
+                    headerTitleStyle: {
+                        fontSize: 18,
+                        fontWeight: 'bold',
+                    },
                     headerTransparent: true,
                     headerTitle: '',
                     tabBarIcon: ({focused}) => (
