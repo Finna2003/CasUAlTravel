@@ -85,8 +85,6 @@ export default function TabsLayout () {
                         fontSize: 18,
                         fontWeight: 'bold',
                     },
-                    headerTransparent: true,
-                    headerTitle: '',
                     tabBarIcon: ({focused}) => (
                         <MaterialIcons name="history" size={34} color={focused ? activeColor : inactiveColor} />
                     ),
