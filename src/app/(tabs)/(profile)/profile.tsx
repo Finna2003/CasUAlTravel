@@ -1,9 +1,9 @@
 import {Image, ImageBackground, ScrollView, StyleSheet, View} from "react-native";
-import {COLORS} from "../../constants/theme";
-import ProfileHeader from "../../components/profile/header/ProfileHeader";
-import ProfileBody from "../../components/profile/body/ProfileBody";
-import SafeAreaViewBothOS from "../../components/common/SafeAreaViewBothOS";
-import {moderateAdaptive} from "../../utility/metrics";
+import {COLORS} from "../../../constants/theme";
+import ProfileHeader from "../../../components/profile/header/ProfileHeader";
+import ProfileBody from "../../../components/profile/body/ProfileBody";
+import SafeAreaViewBothOS from "../../../components/common/SafeAreaViewBothOS";
+import {moderateAdaptive} from "../../../utility/metrics";
 
 export default function Profile(){
     return (
@@ -11,9 +11,9 @@ export default function Profile(){
             style={styles.cont}
             showsVerticalScrollIndicator={false}
         >
-            <Image source={require("../../assets/images/inna.jpg")} style={styles.inna}/>
+            <Image source={require("../../../assets/images/inna.jpg")} style={styles.inna}/>
             <View style={styles.backImg_cont}>
-                <ImageBackground source={require("../../assets/images/profile_back.jpg")} style={styles.header_cont_outer}>
+                <ImageBackground source={require("../../../assets/images/profile_back.jpg")} style={styles.header_cont_outer}>
                     <SafeAreaViewBothOS style={styles.header_cont_inner}>
                         <ProfileHeader/>
                     </SafeAreaViewBothOS>

@@ -1,7 +1,7 @@
 import {Image, StyleSheet, Text, View} from "react-native";
-import ProjectButtonDark from "../../components/common/ProjectButtonDark";
+import ProjectButtonDark from "../../../../components/common/ProjectButtonDark";
 import {router} from "expo-router";
-import {COLORS} from "../../constants/theme";
+import {COLORS} from "../../../../constants/theme";
 import React from "react";
 
 export default function Welcome(){
@@ -9,7 +9,7 @@ export default function Welcome(){
         <View style={styles.contentContainer}>
             <View>
                 <Image
-                    source={require("../../assets/images/photo2.jpg")}
+                    source={require("../../../../assets/images/photo2.jpg")}
                     style={styles.img}
                     resizeMode={"cover"}
                 />
