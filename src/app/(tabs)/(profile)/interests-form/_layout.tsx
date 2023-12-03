@@ -1,5 +1,5 @@
 import {Stack} from "expo-router";
-import {COLORS} from "../../constants/theme";
+import {COLORS} from "../../../../constants/theme";
 
 export default function InterestsFormLayout(){
     return (
@@ -15,7 +15,8 @@ export default function InterestsFormLayout(){
                 contentStyle: {
                     backgroundColor: COLORS.white
                 },
-                fullScreenGestureEnabled: true
+                fullScreenGestureEnabled: true,
+                headerShown: false
             }}
         >
             <Stack.Screen
