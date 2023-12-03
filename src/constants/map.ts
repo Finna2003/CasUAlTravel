@@ -1,4 +1,4 @@
-const API_KEY = "AIzaSyB3dIs6nlzOIE0WmEsfWyaqpHTPSzUtvFg"
+const API_KEY = ""
 
 const INITIAL_REGION = {
     latitude: 50.45274753871608,
