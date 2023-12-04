@@ -11,7 +11,6 @@ export default function Profile(){
             style={styles.cont}
             showsVerticalScrollIndicator={false}
         >
-            <Image source={require("../../../assets/images/inna.jpg")} style={styles.inna}/>
             <View style={styles.backImg_cont}>
                 <ImageBackground source={require("../../../assets/images/profile_back.jpg")} style={styles.header_cont_outer}>
                     <SafeAreaViewBothOS style={styles.header_cont_inner}>
@@ -27,12 +26,6 @@ export default function Profile(){
 }
 
 const styles = StyleSheet.create({
-    inna: {
-        position: "absolute",
-        top: -365,
-        width: "100%",
-        resizeMode: "contain"
-    },
     backImg_cont: {
         top: -20,
         borderTopLeftRadius: 50,

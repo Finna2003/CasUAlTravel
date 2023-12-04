@@ -8,15 +8,16 @@ import { forwardRef } from "react";
 export type Answer = {
     id: number;
     text: string;
-    value: any;
+    value?: any;
 };
 
 type QuestionProps = {
+    titleFontSize?: number,
     text: string;
     answers: Answer[];
     onSelect: (val: any) => void;
 };
-const Question = forwardRef((props: QuestionProps, ref) => {
+const ProjectQuestion = forwardRef((props: QuestionProps, ref) => {
     const [selectedAnswer, setSelectedAnswer] = useState<Answer | null>(null);
 
     const handleSelect = (e: Answer) => {
@@ -25,12 +26,17 @@ const Question = forwardRef((props: QuestionProps, ref) => {
     }
 
     return (
-        <View>
-            <View>
+        <View style={{
+            backgroundColor: COLORS.white,
+            borderRadius: 20,
+        }}>
+            <View style={{
+                padding: 15
+            }}>
                 <Text
                     style={{
                         fontFamily: FONT.bold,
-                        fontSize: FONT_SIZES.sectionTitle
+                        fontSize: props.titleFontSize ? props.titleFontSize : FONT_SIZES.sectionTitle
                     }}
                 >
                     {props.text}
@@ -38,10 +44,8 @@ const Question = forwardRef((props: QuestionProps, ref) => {
             </View>
             <View
                 style={{
-                    marginTop: 20,
-                    backgroundColor: COLORS.white,
-                    borderRadius: 15,
-                    overflow: "hidden"
+                    borderColor: COLORS.light_grey,
+                    paddingBottom: 2
                 }}
             >
                 {props.answers.map(e => (
@@ -50,8 +54,7 @@ const Question = forwardRef((props: QuestionProps, ref) => {
                         style={{
                             padding: 15,
                             width: "100%",
-                            backgroundColor: COLORS.white,
-                            borderWidth: 1,
+                            borderTopWidth: 2,
                             borderColor: COLORS.light_grey
                         }}
                         onPress={() => handleSelect(e)}
@@ -63,20 +66,19 @@ const Question = forwardRef((props: QuestionProps, ref) => {
                                 justifyContent: "space-between"
                             }}
                         >
-                            <View>
+                            <View style={{
+                                width: "90%"
+                            }}>
                                 <Text
                                     style={{
                                         fontFamily: FONT.regular,
-                                        fontSize: 16
+                                        fontSize: 16,
                                     }}
                                 >
                                     {e.text}
                                 </Text>
                             </View>
-                            <View
-                                style={{
-                                }}
-                            >
+                            <View>
                                 <View
                                     style={{
                                         width: 23,
@@ -107,7 +109,7 @@ const Question = forwardRef((props: QuestionProps, ref) => {
         </View>
     )
 });
-export default Question;
+export default ProjectQuestion;
 
 const styles = StyleSheet.create({
     container: {

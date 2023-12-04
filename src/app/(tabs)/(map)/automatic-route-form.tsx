@@ -1,11 +1,9 @@
-import {SafeAreaView, ScrollView, Text, View} from "react-native";
-import SafeAreaViewBothOS from "../../../components/common/SafeAreaViewBothOS";
-import Question from "../../../components/interests-form/Question";
+import {ScrollView, View} from "react-native";
+import ProjectQuestion from "../../../components/common/ProjectQuestion";
 import React, {useRef} from "react";
-import {COLORS} from "../../../constants/theme";
 import ProjectButtonDark from "../../../components/common/ProjectButtonDark";
 import {useAutoRoute} from "../../../contexts/AutoRouteProvider";
-import {PLACES, ROUTE_PLACES} from "../../../constants/response";
+import {ROUTE_PLACES} from "../../../constants/response";
 import {router} from "expo-router";
 
 export default function AutomaticRouteForm(){
@@ -25,8 +23,8 @@ export default function AutomaticRouteForm(){
             }}
         >
             <View>
-                <Question
-                    text={"Скільки часу я маю на найближчий відпочинок"}
+                <ProjectQuestion
+                    text={"Скільки часу я маю на найближчий відпочинок?"}
                     answers={[  { id: 1, text: "До 1 години", value: 1},
                         { id: 2, text: "Від 1 до 3 годин", value: 2},
                         { id: 3, text: "Від 3 до 5 годин", value: 4},
@@ -35,8 +33,8 @@ export default function AutomaticRouteForm(){
                 />
             </View>
             <View style={{marginTop: 70}}>
-                <Question
-                    text={"Скільки грошей я готовий витратити на свій відпочинок сьогодні"}
+                <ProjectQuestion
+                    text={"Скільки грошей я готовий витратити на свій відпочинок сьогодні?"}
                     answers={[
                         { id: 1, text: "300 гривень", value: 300 },
                         { id: 2, text: "800 гривень", value: 800 },
@@ -46,7 +44,7 @@ export default function AutomaticRouteForm(){
                 />
             </View>
             <View style={{marginTop: 70}}>
-                <Question
+                <ProjectQuestion
                     text={"Як добре я знаю місто?"}
                     answers={[
                         { id: 1, text: "Місцевий", value: false },
@@ -55,8 +53,8 @@ export default function AutomaticRouteForm(){
                 />
             </View>
             <View style={{marginTop: 70}}>
-                <Question
-                    text={"Зазвичай я надаю перевагу:"}
+                <ProjectQuestion
+                    text={"Якому відпочинку зазвичай я надаю перевагу?"}
                     answers={[
                         { id: 1, text: "Активний відпочинок", value: "sports" },
                         { id: 2, text: "Пізнавальний відпочинок", value: "educationalAction" },
@@ -65,7 +63,7 @@ export default function AutomaticRouteForm(){
                 />
             </View>
             <View style={{marginTop: 70}}>
-                <Question
+                <ProjectQuestion
                     text={"Сьогодні погода в місті дозволяє прогулянки на вулиці?"}
                     answers={[
                         { id: 1, text: "Так", value: true },

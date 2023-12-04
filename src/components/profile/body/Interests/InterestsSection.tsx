@@ -2,9 +2,16 @@ import {StyleSheet, View, Text} from "react-native";
 import {COLORS, FONT, FONT_SIZES} from "../../../../constants/theme";
 import {moderateAdaptive} from "../../../../utility/metrics";
 import InterestItem from "./InterestItem";
+import {useInterestsProfile} from "../../../../contexts/InterestsProfileProvider";
+import ProjectButtonDark from "../../../common/ProjectButtonDark";
+import {router} from "expo-router";
+import ProjectButtonLight from "../../../common/ProjectButtonLight";
+import {BlurView} from "expo-blur";
 
 export default function InterestsSection(){
-    const interests = [
+    const {interests} = useInterestsProfile();
+
+    const interestsInfo = [
         {
             id: 1,
             img: require('../../../../assets/images/history-icon.png'),
@@ -44,7 +51,7 @@ export default function InterestsSection(){
             </View>
             <View style={styles.body}>
                 <View style={styles.interests_cont}>
-                    {interests.map(item => (
+                    {interestsInfo.map(item => (
                         <View key={item.id} style={styles.interest_cont}>
                             <InterestItem
                                 img={item.img}
@@ -55,6 +62,23 @@ export default function InterestsSection(){
                         </View>
                     ))}
                 </View>
+                {!interests && (
+                    <View style={{
+                        borderRadius: moderateAdaptive(25),
+                        justifyContent: "center",
+                        alignItems: "center",
+                        position: "absolute",
+                        backgroundColor: "white",
+                        height: moderateAdaptive(290),
+                        width: moderateAdaptive(343),
+                    }}>
+                        <ProjectButtonLight
+                            text={"Пройти опитування"}
+                            onPress={() => router.push('/interests-survey/welcome')}
+                            width={250}
+                        />
+                    </View>
+                )}
             </View>
         </View>
     )

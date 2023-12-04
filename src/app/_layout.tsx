@@ -4,6 +4,8 @@ import SessionProvider from "../auth/SessionProvider";
 import {useFonts} from "expo-font";
 import axios from "axios";
 import PlacesProvider from "../contexts/places/PlacesProvider";
+import InterestsProfileProvider from "../contexts/InterestsProfileProvider";
+import AutoRouteProvider from "../contexts/AutoRouteProvider";
 
 export default function AppLayout (){
     const [fontsLoaded, fontError] = useFonts({
@@ -22,7 +24,11 @@ export default function AppLayout (){
     return (
         <SessionProvider>
             <PlacesProvider>
-                <Slot></Slot>
+                <InterestsProfileProvider>
+                    <AutoRouteProvider>
+                        <Slot></Slot>
+                    </AutoRouteProvider>
+                </InterestsProfileProvider>
             </PlacesProvider>
         </SessionProvider>
     )
