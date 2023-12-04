@@ -70,7 +70,7 @@ export default function SessionProvider({children}: {children: ReactNode}){
                     .catch((error: AxiosError) => {
                         reject(error)
                     })*/
-                setSession('session');
+                setSession('asd');
                 resolve();
             }),
             signIn: (data: SignInRequestData) => new Promise((resolve, reject) => {
@@ -82,7 +82,7 @@ export default function SessionProvider({children}: {children: ReactNode}){
                     .catch((error: AxiosError) => {
                         reject(error)
                     })*/
-                setSession('session');
+                setSession('asd');
                 resolve();
             }),
             signOut: () => setSession(null)

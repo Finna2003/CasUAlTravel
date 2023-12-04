@@ -20,7 +20,6 @@ export function useAutoRoute(){
 
 export default function AutoRouteProvider({children} : {children: ReactNode}){
     const [routePlaces, setRoutePlaces] = useState<placeDbDetails[] | null>(null);
-
     return (
         <AutoRouteContext.Provider
             value={{

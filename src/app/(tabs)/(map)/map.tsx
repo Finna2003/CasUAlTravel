@@ -2,16 +2,13 @@ import {Image, Pressable, View, Text, StyleSheet} from "react-native";
 import MapView, {PROVIDER_GOOGLE, Marker, LatLng, Region} from "react-native-maps";
 import {API_KEY, INITIAL_REGION, MAP_STYLE} from "../../../constants/map";
 import ProjectLoadingScreen from "../../../components/common/ProjectLoadingScreen";
-import PlaceDetails from "../../../components/map/PlaceDetails";
 import {RefObject, useEffect, useRef, useState} from "react";
-import {placeIconDetails} from "../../../contexts/places/usePlacesIconDetails";
 import {COLORS, FONT, FONT_SIZES} from "../../../constants/theme";
 import {usePlaces} from "../../../contexts/places/PlacesProvider";
 import {AntDesign, Entypo} from "@expo/vector-icons";
 import {router} from "expo-router";
 import {useAutoRoute} from "../../../contexts/AutoRouteProvider";
 import MapViewDirections from "react-native-maps-directions";
-import {usePlacesDbDetails} from "../../../contexts/places/usePlacesDbDetails";
 import ProjectButton from "../../../components/common/ProjectButton";
 
 export default function Map(){
