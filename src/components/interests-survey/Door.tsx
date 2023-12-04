@@ -1,25 +1,15 @@
-import {Image, ScrollView, Text, View} from "react-native";
-import ProjectQuestion from "../../../../components/common/ProjectQuestion";
-import {COLORS, FONT, FONT_SIZES,} from "../../../../constants/theme";
-import React from "react";
-import ProjectButtonDark from "../../../../components/common/ProjectButtonDark";
+import {Image, ImageSourcePropType, Text, View} from "react-native";
+import {interestsSurveyDoor} from "../../contexts/intetersts-survey/InterestsSurveyProvider";
+import ProjectBlock from "../common/ProjectBlock";
+import {FONT, FONT_SIZES} from "../../constants/theme";
+import ProjectQuestion from "../common/ProjectQuestion";
+import ProjectButtonDark from "../common/ProjectButtonDark";
 import {router} from "expo-router";
-import {useInterestsSurvey} from "../../../../contexts/intetersts-survey/InterestsSurveyProvider";
-import ProjectLoadingScreen from "../../../../components/common/ProjectLoadingScreen";
-import ProjectBlock from "../../../../components/common/ProjectBlock";
+import React from "react";
 
-export default function ArtOfTravel(){
-    const {artOfTravel} = useInterestsSurvey();
-
-    if (!artOfTravel){
-        return <ProjectLoadingScreen/>;
-    }
-
+export default function Door({door, img}: {door: interestsSurveyDoor, img: ImageSourcePropType}){
     return (
-        <ScrollView  style={{
-            paddingHorizontal: 15,
-            backgroundColor: COLORS.light_grey
-        }}>
+        <View>
             <View style={{
                 marginTop: 30,
             }}>
@@ -31,7 +21,7 @@ export default function ArtOfTravel(){
                                 fontFamily: FONT.bold
                             }}
                         >
-                            {`${artOfTravel.nameForUser}`}
+                            {`${door.nameForUser}`}
                         </Text>
                     </View>
                     <View style={{
@@ -45,12 +35,12 @@ export default function ArtOfTravel(){
                                 width: "100%",
                                 resizeMode: "stretch"
                             }}
-                            source={require('../../../../assets/images/door-artOfTravel.jpg')}
+                            source={img}
                         />
                     </View>
                 </ProjectBlock>
             </View>
-            {artOfTravel.questions.map(e => (
+            {door.questions.map(e => (
                 <View key={e.id}>
                     <View style={{marginTop: 30}}>
                         <ProjectBlock>
@@ -79,12 +69,6 @@ export default function ArtOfTravel(){
                     </View>
                 </View>
             ))}
-            <View style={{marginTop: 30}}>
-                <ProjectButtonDark text={"Наступні двері"} onPress={() => {
-                    router.push("/interests-form/door2");
-                }}/>
-            </View>
-        </ScrollView>
+        </View>
     )
 }
-

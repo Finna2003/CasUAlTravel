@@ -15,7 +15,7 @@ export default function ProfileLayout(){
                 }}
             />
             <Stack.Screen
-                name={"interests-form"}
+                name={"interests-survey"}
                 options={{
                     title: "Визначення інтересів",
                     headerTitleStyle: {

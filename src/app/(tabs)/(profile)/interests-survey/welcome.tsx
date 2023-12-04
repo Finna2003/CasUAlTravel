@@ -20,7 +20,7 @@ export default function Welcome(){
                 маршрут
             </Text>
             <ProjectButtonDark text={"Розпочати"} onPress={() => {
-                router.push("/interests-form/artOfTravel");
+                router.push("/interests-survey/artOfTravel");
             }}/>
         </View>
     )
