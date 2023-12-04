@@ -62,24 +62,28 @@ export default function SessionProvider({children}: {children: ReactNode}){
             isLoading: isSessionLoading,
             isSession: isSession,
             register: (data: RegisterRequestData) => new Promise((resolve, reject) => {
-                axiosBase.post<RegisterResponse201>("/user-management/register", data)
+                /*axiosBase.post<RegisterResponse201>("/user-management/register", data)
                     .then((response: AxiosResponse<RegisterResponse201>) => {
                         setSession(response.data.token);
                         resolve();
                     })
                     .catch((error: AxiosError) => {
                         reject(error)
-                    })
+                    })*/
+                setSession('session');
+                resolve();
             }),
             signIn: (data: SignInRequestData) => new Promise((resolve, reject) => {
-                axiosBase.post<SignInResponse201>("/user-management/sign-in", data)
+                /*axiosBase.post<SignInResponse201>("/user-management/sign-in", data)
                     .then((response: AxiosResponse<SignInResponse201>) => {
                         setSession(response.data.token);
                         resolve();
                     })
                     .catch((error: AxiosError) => {
                         reject(error)
-                    })
+                    })*/
+                setSession('session');
+                resolve();
             }),
             signOut: () => setSession(null)
         }}>

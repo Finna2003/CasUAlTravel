@@ -29,9 +29,6 @@ export default function ProfileBody(){
                         />
                     </Link>
                 </View>
-                <View>
-                    <ProjectButtonDark text={"Перейти до опитування"} onPress={() => router.push('/interests-survey/welcome')}/>
-                </View>
             </View>
         </View>
     )

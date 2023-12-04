@@ -1,6 +1,6 @@
 import {Stack} from "expo-router";
 import {COLORS} from "../../../../constants/theme";
-import InterestsSurveyProvider from "../../../../contexts/intetersts-survey/InterestsSurveyProvider";
+import InterestsSurveyProvider from "../../../../contexts/InterestsSurveyProvider";
 
 export default function InterestsFormLayout(){
     return (
