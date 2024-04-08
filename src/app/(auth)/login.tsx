@@ -19,7 +19,7 @@ export default function Login(){
     const [error, setError] = useState<AxiosError | null>(null)
 
     const handleLogin = () => {
-        if (!email || !password){
+        if (!email || !password) {
             return
         }
 

@@ -10,7 +10,7 @@ export default function ProfileHeader(){
             <View style={styles.profile_header_top}>
                 <View style={styles.profile_header_img_cont}>
                     <CircularProgressImage
-                        img={require("../../../assets/images/photo.jpg")}
+                        img={require("../../../assets/images/inna_2.jpg")}
                         imgRadius={moderateAdaptive(57)}
                         strokeRadius={moderateAdaptive(62)}
                         strokeWidth={moderateAdaptive(8)}
@@ -29,17 +29,17 @@ export default function ProfileHeader(){
                 <View style={styles.profile_header_info_cont}>
                     <View style={styles.profile_header_info_name_cont}>
                         <Text style={styles.profile_header_info_name}>
-                            Влад
+                            Інна
                         </Text>
                     </View>
                     <View style={styles.profile_header_info_username_cont}>
                         <Text style={styles.profile_header_info_username}>
-                            @vladsfa
+                            @InnaFysiuk
                         </Text>
                     </View>
                     <View style={styles.profile_header_info_description_cont}>
                         <Text style={styles.profile_header_info_description}>
-                            Software Engineer, 21
+                            IT Recruiter, 20
                         </Text>
                     </View>
                 </View>

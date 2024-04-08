@@ -42,10 +42,11 @@ const styles = StyleSheet.create({
         marginTop: moderateAdaptive(25)
     },
     interests_cont: {
-        marginTop: moderateAdaptive(65)
+        marginTop: moderateAdaptive(65),
     },
     withPadding: {
-        paddingHorizontal: moderateAdaptive(25)
+        paddingHorizontal: moderateAdaptive(25),
+
     },
     signOut_cont: {
         marginTop: 25,

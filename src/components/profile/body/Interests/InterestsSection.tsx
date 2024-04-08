@@ -70,7 +70,7 @@ export default function InterestsSection(){
                         position: "absolute",
                         backgroundColor: "white",
                         height: moderateAdaptive(290),
-                        width: moderateAdaptive(343),
+                        width: moderateAdaptive(320),
                     }}>
                         <ProjectButtonLight
                             text={"Пройти опитування"}
@@ -100,7 +100,8 @@ const styles = StyleSheet.create({
         paddingVertical: moderateAdaptive(15),
         paddingHorizontal: moderateAdaptive(10),
         backgroundColor: COLORS.white,
-        borderRadius: moderateAdaptive(25)
+        borderRadius: moderateAdaptive(25),
+
     },
     interests_cont: {
         marginBottom: -moderateAdaptive(20)
